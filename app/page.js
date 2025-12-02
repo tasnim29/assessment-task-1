@@ -4,6 +4,8 @@ import SalesTable from "./components/SalesTable";
 import { getSalesData, getToken } from "./lib/api";
 import { useQuery } from "@tanstack/react-query";
 import Filters from "./components/Filters";
+import SalesChart from "./components/SalesChart";
+import Loader from "./components/Loader";
 
 export default function Home() {
   const [values, setValues] = useState({
@@ -45,9 +47,11 @@ export default function Home() {
   });
 
   const data = salesData?.results?.Sales || [];
+  const totalSales = salesData?.results?.TotalSales || [];
+  // console.log(totalSales);
 
-  if (tokenLoading) return <p>Token is loading....</p>;
-  if (salesLoading) return <p>Sales Data is loading....</p>;
+  if (tokenLoading) return <Loader></Loader>;
+  if (salesLoading) return <Loader></Loader>;
 
   return (
     <div className="max-w-7xl mx-auto px-8 py-10">
@@ -76,6 +80,10 @@ export default function Home() {
             sortOrder={values.sortOrder}
           />
         </div>
+      </div>
+
+      <div>
+        <SalesChart totalSales={totalSales}></SalesChart>
       </div>
     </div>
   );
