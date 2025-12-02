@@ -1,5 +1,5 @@
-const BASE_URL = "https://autobizz-425913.uc.r.appspot.com";
-("https://autobizz-425913.uc.r.appspot.com/getAuthorize");
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const getToken = async () => {
   const response = await fetch(`${BASE_URL}/getAuthorize`, {
     method: "POST",

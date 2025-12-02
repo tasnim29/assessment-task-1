@@ -54,8 +54,8 @@ export default function Home() {
   if (salesLoading) return <Loader></Loader>;
 
   return (
-    <div className="max-w-7xl mx-auto px-8 py-10">
-      <h1 className="text-6xl text-center mb-10">Saless Dashboard</h1>
+    <div className="max-w-7xl mx-auto px-8 py-10 space-y-8">
+      <h1 className="text-6xl text-center mb-10">Sales Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
         <div className="col-span-3">
