@@ -9,9 +9,11 @@ export default function Home() {
   const [values, setValues] = useState({
     startDate: "",
     endDate: "",
-    minPrice: "",
+    priceMin: "",
     email: "",
     phone: "",
+    sortBy: "date",
+    sortOrder: "asc",
   });
 
   const [filters, setFilters] = useState(values);
@@ -60,6 +62,18 @@ export default function Home() {
             setPagination={setPagination}
             data={data}
             pagination={salesData?.pagination || {}}
+            onSort={(field) => {
+              setValues((prev) => ({
+                ...prev,
+                sortBy: field,
+                sortOrder:
+                  prev.sortBy === field && prev.sortOrder === "asc"
+                    ? "desc"
+                    : "asc",
+              }));
+            }}
+            sortBy={values.sortBy}
+            sortOrder={values.sortOrder}
           />
         </div>
       </div>

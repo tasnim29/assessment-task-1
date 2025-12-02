@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Filters = ({ values, setValues }) => {
   function updateInputs(field, value) {

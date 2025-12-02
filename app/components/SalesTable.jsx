@@ -10,15 +10,40 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-const SalesTable = ({ setPagination, data = [], pagination }) => {
+const SalesTable = ({
+  setPagination,
+  data = [],
+  pagination,
+  onSort,
+  sortBy,
+  sortOrder,
+}) => {
   return (
     <div>
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>date</TableHead>
-            <TableHead>price</TableHead>
+            <TableHead>
+              Date
+              <button onClick={() => onSort("date")}>
+                {sortBy === "date"
+                  ? sortOrder === "asc"
+                    ? "⬇️"
+                    : "⬆️"
+                  : "⬆️⬇️"}
+              </button>
+            </TableHead>
+            <TableHead>
+              Price
+              <button onClick={() => onSort("price")}>
+                {sortBy === "price"
+                  ? sortOrder === "asc"
+                    ? "⬇️"
+                    : "⬆️"
+                  : "⬆️⬇️"}
+              </button>
+            </TableHead>
             <TableHead>Email</TableHead>
             <TableHead className="text-right">Phone</TableHead>
           </TableRow>
