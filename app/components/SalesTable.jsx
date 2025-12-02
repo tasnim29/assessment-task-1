@@ -8,11 +8,11 @@ import {
   TableHead,
   TableCell,
 } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 const SalesTable = ({ setPagination, data = [], pagination }) => {
   return (
-    <div className="max-w-5xl mx-auto">
-      <h1 className="text-center text-3xl font-bold">SalesTable</h1>
+    <div>
       <Table>
         <TableHeader>
           <TableRow>
@@ -36,24 +36,24 @@ const SalesTable = ({ setPagination, data = [], pagination }) => {
         </TableBody>
       </Table>
 
-      <div className="space-x-10">
-        <button
+      <div className="space-x-10 mt-5">
+        <Button
           disabled={!pagination.before}
           onClick={() =>
             setPagination({ before: pagination.before, after: null })
           }
         >
           Previous
-        </button>
+        </Button>
 
-        <button
+        <Button
           disabled={!pagination.after}
           onClick={() =>
             setPagination({ after: pagination.after, before: null })
           }
         >
           Next
-        </button>
+        </Button>
       </div>
     </div>
   );
